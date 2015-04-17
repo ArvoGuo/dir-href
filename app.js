@@ -32,10 +32,7 @@ function getFiles(path, files_) {
   files_    = files_ || [];
   var files = fs.readdirSync(path);
   ignoreFiles(files);
-  if (files.indexOf('index.html') > 0) {
-    files_.push((path + '/index.html').replace(dir,host));
-    return files_;
-  }
+
   for (var i in files) {
     if (!files.hasOwnProperty(i)) {
       continue;
@@ -43,7 +40,12 @@ function getFiles(path, files_) {
     var _path = path + '/' + files[i];
     if (fs.statSync(_path).isDirectory()) {
       getFiles(_path,files_);
+    } else {
+      if (files[i].match('.html')) {
+        files_.push((path + '/' + files[i]).replace(dir,host));
+      }
     }
+
   }
   return files_;
 }
