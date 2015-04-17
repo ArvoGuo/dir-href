@@ -1,0 +1,19 @@
+{
+  "name": "dir-href",
+  "version": "1.0.1",
+  "description": "write all .html url into a html",
+  "main": "app.js",
+  "bin": {
+    "dir-href": "app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArvoGuo/dir-href.git"
+  },
+  "author": "Arvo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArvoGuo/dir-href/issues"
+  },
+  "homepage": "https://github.com/ArvoGuo/dir-href"
+}
