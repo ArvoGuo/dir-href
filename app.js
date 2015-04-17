@@ -1,11 +1,10 @@
 var config   = require('./config');
 var path     = require('path');
 var fs       = require('fs');
-var dir      = path.dirname(__dirname);
+var dir      = process.argv[2] || process.cwd();
 var host     = config.host;
 var template = config.temp;
 var html     = '';
-
 
 /**===================================**/
 /**============ prototype ============**/
