@@ -1,4 +1,4 @@
-find all index.html
+find all .html and write into a html as href
 
 ##Install
 
