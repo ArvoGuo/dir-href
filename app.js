@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-var config   = require('./config');
-var path     = require('path');
-var fs       = require('fs');
-var dir      = process.argv[2] || process.cwd();
-var host     = config.host;
-var template = config.temp;
-var html     = '';
+var config        = require('./temp/config.js');
+var templatePath  = './temp/template.html';
+var path          = require('path');
+var fs            = require('fs');
+var dir           = process.argv[2] || process.cwd();
+var host          = config.host;
+var template      = config.temp;
+var html          = '';
 
 /**===================================**/
 /**============ prototype ============**/
@@ -61,6 +62,8 @@ html = (function() {
   });
   return h;
 })();
+
+html = fs.readFileSync(templatePath, {encoding: 'utf8'}).replace(/{{content}}/g, html);
 
 fs.writeFileSync('catalogue.html', html);
 
