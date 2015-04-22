@@ -1,6 +1,6 @@
 {
   "name": "dir-href",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "write all .html url into a html",
   "main": "app.js",
   "bin": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ArvoGuo/dir-href/issues"
   },
-  "homepage": "https://github.com/ArvoGuo/dir-href"
+  "homepage": "https://github.com/ArvoGuo/dir-href",
+  "dependencies": {
+    "readline-sync": "^0.8.0"
+  }
 }

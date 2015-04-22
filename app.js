@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 var config        = require('./temp/config.js');
-var templatePath  = './temp/template.html';
+var templatePath  = __dirname + '/temp/template.html';
 var path          = require('path');
+var readlineSync  = require('readline-sync');
 var fs            = require('fs');
 var dir           = process.argv[2] || process.cwd();
 var host          = config.host;
@@ -58,7 +59,8 @@ function getFiles(path, files_) {
 html = (function() {
   var h = '';
   getFiles(dir).forEach(function(item){
-    h += template.replace(/{data}/g, item);
+    var urlName = readlineSync.question('href ( ' + item + ' ) name is :');
+    h += template.replace(/{url}/g, item).replace(/{urlName}/g,urlName);
   });
   return h;
 })();
