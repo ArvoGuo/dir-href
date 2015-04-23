@@ -1,6 +1,6 @@
 {
   "name": "dir-href",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "write all .html url into a html",
   "main": "app.js",
   "bin": {
