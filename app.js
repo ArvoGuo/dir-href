@@ -8,6 +8,14 @@ var dir           = process.argv[2] || process.cwd();
 var host          = config.host;
 var template      = config.temp;
 var html          = '';
+var needIgnoreFiles    = [
+    '.DS_Store',
+    '.git',
+    'node_modules',
+    'bower_compontents',
+    'lib'
+];
+var matchTag      = '.html';
 
 /**===================================**/
 /**============ prototype ============**/
@@ -28,7 +36,9 @@ Array.prototype.remove = function () {
 /**===================================**/
 
 function ignoreFiles(files) {
-  files.remove('.DS_Store').remove('.git').remove('node_modules').remove('bower_compontents').remove('lib');
+  needIgnoreFiles.forEach(function(f) {
+    files.remove(f);
+  });
 }
 
 function getFiles(path, files_) {
@@ -44,7 +54,7 @@ function getFiles(path, files_) {
     if (fs.statSync(_path).isDirectory()) {
       getFiles(_path,files_);
     } else {
-      if (files[i].match('.html')) {
+      if (files[i].match(matchTag)) {
         files_.push((path + '/' + files[i]).replace(dir,host));
       }
     }
@@ -59,7 +69,7 @@ function getFiles(path, files_) {
 html = (function() {
   var h = '';
   getFiles(dir).forEach(function(item){
-    var urlName = readlineSync.question('href ( ' + item + ' ) name is :');
+    var urlName = readlineSync.question('href ( ' + item + ' ) name is : ');
     h += template.replace(/{url}/g, item).replace(/{urlName}/g,urlName);
   });
   return h;
