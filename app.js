@@ -68,6 +68,9 @@ function getFiles(path, files_) {
 /**===================================**/
 /**=============== Main ==============**/
 /**===================================**/
+
+host = readlineSync.question('default path is: ' + dir + ', please enter your host: ').toString();
+
 html = (function() {
   var h = '';
   getFiles(dir).forEach(function(item){
