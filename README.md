@@ -4,7 +4,7 @@ dir-href
 
 能够找到当前目录下所有的.html文件，并且提示你命名同时生成html目录
 
-```
+```javascript
   assumption：
     your host is : http://www.oooooo6.com
     your file's dir in your server:
@@ -13,10 +13,15 @@ dir-href
                    /Users/Arvo/github/dir-href/abc/def/3.html
                    ...
 
+```
 
-  => //cd /Users/Arvo/github/dir-href && dir-href,
-    // you will get a html contains :
+```javascript
+=> //cd /Users/Arvo/github/dir-href && dir-href,
+   // you will get a html contains :
 
+```
+
+```html
   <a href="http://www.oooooo6.com/1.html" target="_blank" class="btn btn-primary">my first html</a>
   <a href="http://www.oooooo6.com/abc/2.html" target="_blank" class="btn btn-primary">my second html</a>
   <a href="http://www.oooooo6.com/abc/def/3.html" target="_blank" class="btn btn-primary">my third html</a>
